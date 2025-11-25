@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ahmad Khan Portfolio - Design System */
+
+@layer base {
+  :root {
+    /* Base colors - Light theme */
+    --background: 220 20% 97%;
+    --foreground: 220 15% 15%;
+
+    /* Primary - Tech Blue */
+    --primary: 217 96% 44%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 96% 54%;
+
+    /* Accent - Teal Green */
+    --accent: 168 76% 42%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 168 76% 52%;
+
+    /* Card & Surface */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --card-glass: 0 0% 100% / 0.7;
+
+    /* Muted */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Secondary */
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 15% 15%;
+
+    /* Borders */
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 217 96% 44%;
+
+    /* Other */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(217 96% 44%), hsl(168 76% 42%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 20% 97%), hsl(220 20% 94%));
+    --shadow-glow: 0 0 40px hsl(217 96% 44% / 0.3);
+    --shadow-card: 0 4px 20px hsl(220 15% 15% / 0.08);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Base colors - Dark theme */
+    --background: 220 30% 8%;
+    --foreground: 0 0% 98%;
+
+    /* Primary - Tech Blue (brighter in dark) */
+    --primary: 217 96% 54%;
+    --primary-foreground: 220 30% 8%;
+    --primary-glow: 217 96% 64%;
+
+    /* Accent - Teal Green (brighter in dark) */
+    --accent: 168 76% 52%;
+    --accent-foreground: 220 30% 8%;
+    --accent-glow: 168 76% 62%;
+
+    /* Card & Surface */
+    --card: 220 25% 12%;
+    --card-foreground: 0 0% 98%;
+    --card-glass: 220 25% 12% / 0.7;
+
+    /* Muted */
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    /* Secondary */
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Borders */
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 217 96% 54%;
+
+    /* Other */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Custom tokens - Dark adjustments */
+    --gradient-primary: linear-gradient(135deg, hsl(217 96% 54%), hsl(168 76% 52%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 30% 8%), hsl(220 25% 10%));
+    --shadow-glow: 0 0 40px hsl(217 96% 54% / 0.4);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+    font-feature-settings: "kern" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Glass effect */
+  .glass {
+    background: hsl(var(--card-glass));
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Hover lift */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+}
